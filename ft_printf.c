@@ -12,9 +12,26 @@
 
 #include "ft_printf.h"
 
-
 int ft_format(va_list args, char c )
 {
+    int count;
+    count = 0;
+
+    if (c == 's')
+        count += ft_putstr(va_arg(args, char *));
+    else if (c == 'c')
+        count += ft_putchar(va_arg(args, int));
+    else if (c == 'd' || c == 'i')
+        count += ft_putnbr(va_arg(args, int));
+    else if (c == 'u')
+        count += ft_putunsigned(va_arg(args, unsigned int));
+    else if (c == 'x' || c == 'X')
+        count += ft_puthex(va_arg(args, unsigned int), c);
+    else if (c == 'p')
+        count += ft_putptr(va_arg(args, unsigned long long));
+    else if (c == '%')
+        count += ft_putchar('%');
+    return count;
     
 }
 
@@ -30,40 +47,14 @@ int	ft_printf(const char *format, ...)
 	count = 0;
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1] == 's')
+		if (format[i] == '%' && format[i + 1])
 		{
-			count += ft_putstr(va_arg(args, char *));
+			count += ft_format(args, format[i + 1]);
 			i += 2;
 			continue ;
 		}
-		if (format[i] == '%' && format[i + 1] == 'c')
-		{
-			count += ft_putchar(va_arg(args, int));
-			i += 2;
-			continue ;
-		}
-		if (format[i] == '%' && (format[i + 1] == 'd'
-				|| format[i + 1] == 'i'))
-		{
-			count += ft_putnbr(va_arg(args, int));
-			i += 2;
-			continue ;
-		}
-		if (format[i] == '%' && format[i + 1] == 'u')
-		{
-			count += ft_putunsigned(va_arg(args, unsigned int));
-			i += 2;
-			continue ;
-		}
-		if (format[i] == '%' && (format[i + 1] == 'x'
-				|| format[i + 1] == 'X'))
-		{
-		count += ft_puthex(va_arg(args, unsigned int), format[i + 1]);
-		i += 2;
-		continue ;
-	}
-	count += ft_putchar(format[i]);
-	i++;
+		count += ft_putchar(format[i]);
+		i++;
 	}
 	va_end(args);
 	return (count);

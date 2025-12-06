@@ -10,87 +10,100 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <stdio.h>
 #include <stdarg.h>
 
-// int print_all(int count , ...)
-// {
-//     va_list args ; // rest param ...
-//     va_start(args,count); // read args after count 
 
-//     int result = 0 ; 
-//     for (size_t i = 0; i < count; i++)
-//     {
-//         result += va_arg(args, int); // add just args type int ;
-//     }
-//     va_end(args);
-//     return result;
-// }
-
-
-// void print_all_2(char *test, ...)
-// {
-//     va_list args ; // rest param ...
-//     va_start(args,test); // read args after count 
-
-//     printf("---------- \n") ;
-//     for (size_t i = 0; test[i]; i++)
-//     {
-//         if (test[i] == 'i')
-//         {
-//             printf("---------- \n") ;
-//             printf("%d\n", va_arg(args, int));
-//         }else if (test[i] == 'c')
-//         {
-//             printf("%c\n", va_arg(args, int));
-//         }else if (test[i] == 's')
-//         {
-//             printf("%s\n", va_arg(args, char *));
-//         }else if (test[i] == 'f')
-//         {
-//             printf("%f\n", va_arg(args, double));
-//         }
-//         // result += va_arg(args, int); // add just args type int ;
-//     }
-//     va_end(args);
-// }
-
-// int main()
-// {
-//     print_all_2("test",'a', 20 , 5); 
-// }   
-
-
-
-#include <stdio.h>
-#include <stdarg.h>
-void sum(char *format, ...)
-{
-    va_list args;
-    va_start(args, format);
-
-    int sum = 0 ;
-    for (size_t i = 0; format[i]; i++)
-    {
-        if (format[i] == 'i')
-        {
-            printf("%d\n" , va_arg(args , int)) ;
-        }else if (format[i] == 'c')
-        {
-            printf("%c\n" , va_arg(args , int)) ;
-        }else if (format[i] == 's')
-        {
-            printf("%s\n" , va_arg(args , char *)) ;
-        }
-        
-    }
-
-    va_end(args);
-    
-}
-
+// cspdiuxX%
 int main()
 {
-    sum( "cspdiuxX%" , 'a', 20 ,5); 
+    int ft_ret, printf_ret;
+    
+    printf("\n========== TESTING FT_PRINTF ==========\n\n");
+    
+    // Test %c - character
+    printf("--- Testing %%c (character) ---\n");
+    ft_ret = ft_printf("ft_printf: [%c]\n", 'A');
+    printf_ret = printf("printf   : [%c]\n", 'A');
+    printf("Return values: ft=%d, printf=%d\n\n", ft_ret, printf_ret);
+    
+    // Test %s - string
+    printf("--- Testing %%s (string) ---\n");
+    ft_ret = ft_printf("ft_printf: [%s]\n", "Hello, World!");
+    printf_ret = printf("printf   : [%s]\n", "Hello, World!");
+    printf("Return values: ft=%d, printf=%d\n", ft_ret, printf_ret);
+    
+    ft_ret = ft_printf("ft_printf: [%s]\n", "");
+    printf_ret = printf("printf   : [%s]\n", "");
+    printf("Return values: ft=%d, printf=%d\n\n", ft_ret, printf_ret);
+    
+    // Test %d and %i - integers
+    printf("--- Testing %%d and %%i (integers) ---\n");
+    ft_ret = ft_printf("ft_printf: [%d] [%i]\n", 42, -42);
+    printf_ret = printf("printf   : [%d] [%i]\n", 42, -42);
+    printf("Return values: ft=%d, printf=%d\n", ft_ret, printf_ret);
+    
+    ft_ret = ft_printf("ft_printf: [%d] [%d]\n", 0, 2147483647);
+    printf_ret = printf("printf   : [%d] [%d]\n", 0, 2147483647);
+    printf("Return values: ft=%d, printf=%d\n", ft_ret, printf_ret);
+    
+    ft_ret = ft_printf("ft_printf: [%d]\n", (int)-2147483648);
+    printf_ret = printf("printf   : [%d]\n", (int)-2147483648);
+    printf("Return values: ft=%d, printf=%d\n\n", ft_ret, printf_ret);
+    
+    // Test %u - unsigned int
+    printf("--- Testing %%u (unsigned int) ---\n");
+    ft_ret = ft_printf("ft_printf: [%u]\n", 42);
+    printf_ret = printf("printf   : [%u]\n", 42);
+    printf("Return values: ft=%d, printf=%d\n", ft_ret, printf_ret);
+    
+    ft_ret = ft_printf("ft_printf: [%u]\n", 0);
+    printf_ret = printf("printf   : [%u]\n", 0);
+    printf("Return values: ft=%d, printf=%d\n", ft_ret, printf_ret);
+    
+    ft_ret = ft_printf("ft_printf: [%u]\n", 4294967295u);
+    printf_ret = printf("printf   : [%u]\n", 4294967295u);
+    printf("Return values: ft=%d, printf=%d\n\n", ft_ret, printf_ret);
+    
+    // Test %x and %X - hexadecimal
+    printf("--- Testing %%x and %%X (hexadecimal) ---\n");
+    ft_ret = ft_printf("ft_printf: [%x] [%X]\n", 255, 255);
+    printf_ret = printf("printf   : [%x] [%X]\n", 255, 255);
+    printf("Return values: ft=%d, printf=%d\n", ft_ret, printf_ret);
+    
+    ft_ret = ft_printf("ft_printf: [%x] [%X]\n", 0, 0);
+    printf_ret = printf("printf   : [%x] [%X]\n", 0, 0);
+    printf("Return values: ft=%d, printf=%d\n", ft_ret, printf_ret);
+    
+    ft_ret = ft_printf("ft_printf: [%x]\n", 2147483647);
+    printf_ret = printf("printf   : [%x]\n", 2147483647);
+    printf("Return values: ft=%d, printf=%d\n\n", ft_ret, printf_ret);
+    
+    // Test %p - pointer
+    printf("--- Testing %%p (pointer) ---\n");
+    int var = 42;
+    ft_ret = ft_printf("ft_printf: [%p]\n", &var);
+    printf_ret = printf("printf   : [%p]\n", &var);
+    printf("Return values: ft=%d, printf=%d\n", ft_ret, printf_ret);
+    
+    ft_ret = ft_printf("ft_printf: [%p]\n", NULL);
+    printf_ret = printf("printf   : [%p]\n", NULL);
+    printf("Return values: ft=%d, printf=%d\n\n", ft_ret, printf_ret);
+    
+    // Test %% - literal percent
+    printf("--- Testing %%%% (literal percent) ---\n");
+    ft_ret = ft_printf("ft_printf: [%%]\n");
+    printf_ret = printf("printf   : [%%]\n");
+    printf("Return values: ft=%d, printf=%d\n\n", ft_ret, printf_ret);
+    
+    // Test mixed formats
+    printf("--- Testing mixed formats ---\n");
+    ft_ret = ft_printf("ft_printf: %c %s %d %i %u %x %X %% %p\n", 'Z', "test", 42, -10, 100, 15, 15, &var);
+    printf_ret = printf("printf   : %c %s %d %i %u %x %X %% %p\n", 'Z', "test", 42, -10, 100, 15, 15, &var);
+    printf("Return values: ft=%d, printf=%d\n\n", ft_ret, printf_ret);
+    
+    printf("========== TESTS COMPLETE ==========\n");
+    
+    return 0;
 }   
-

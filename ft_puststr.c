@@ -15,13 +15,16 @@
 int ft_putstr(char *s1)
 {
     int i;
+    int count;
+    
     i = 0;
+    count = 0;
     if (!s1)
-    return write(1,"(null)",6);
+        return write(1, "(null)", 6);
     while (s1[i])
     {
-        ft_putchar(s1[i]);
+        count += ft_putchar(s1[i]);
         i++;
-        }
-        return (i);
+    }
+    return (count);
 }

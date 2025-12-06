@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 int ft_putnbr(int n)
 {
-    long nb = n;
+    long long nb = n;
     int count = 0;
 
     if (nb < 0)

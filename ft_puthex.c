@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int ft_puthex(unsigned int n, char format)
+int ft_puthex(unsigned long long n, char format)
 {
     char *hex;
     int count = 0;

@@ -15,7 +15,13 @@
 
 #include <stdarg.h>
 #include <unistd.h>
-int		ft_printf(const char *format, ...);
 
+int		ft_printf(const char *format, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *s1);
+int		ft_putnbr(int n);
+int		ft_putunsigned(unsigned int n);
+int		ft_puthex(unsigned long long n, char format);
+int		ft_putptr(unsigned long long ptr);
 
 #endif
