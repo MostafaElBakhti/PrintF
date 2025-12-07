@@ -3,10 +3,13 @@ CFLAGS = -Wall -Wextra -Werror
 Name = libftprintf.a
 
 SRCS = ft_printf.c \
-	   ft_printf_utils.c \
-	   ft_printf_utils2.c \
-	   ft_printf_utils3.c \
-	   ft_printf_utils4.c
+	   ft_putchar.c \
+	   ft_putstr.c \
+	   ft_putnbr.c \
+	   ft_putunsigned.c \
+	   ft_puthex.c \
+	   ft_putptr.c 
+	   
 OBJS = $(SRCS:.c=.o)
 
 all: $(Name)
