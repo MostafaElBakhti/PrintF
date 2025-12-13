@@ -6,7 +6,7 @@
 /*   By: mel-bakh <mel-bakh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:02:47 by mel-bakh          #+#    #+#             */
-/*   Updated: 2025/12/13 15:48:35 by mel-bakh         ###   ########.fr       */
+/*   Updated: 2025/12/13 16:12:12 by mel-bakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 
 	if(!format)
-		return (0);
+		return (-1);
 	va_start(args, format);
 	i = 0;
 	count = 0;
