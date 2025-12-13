@@ -6,25 +6,38 @@
 /*   By: mel-bakh <mel-bakh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 15:51:07 by mel-bakh          #+#    #+#             */
-/*   Updated: 2025/12/07 15:51:51 by mel-bakh         ###   ########.fr       */
+/*   Updated: 2025/12/13 16:08:27 by mel-bakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
-    long long nb = n;
-    int count = 0;
+	long long	nb;
+	int			count;
+	int 		temp;
 
+	nb = n;
+	count = 0;
     if (nb < 0)
     {
-        count += ft_putchar('-');
+        temp = ft_putchar('-');
+		if (temp == -1)
+			return (-1);
+		count += temp;
         nb = -nb;
     }
     if (nb >= 10)
-        count += ft_putnbr(nb / 10);
-    count += ft_putchar((nb % 10) + '0');
-
+	{
+        temp = ft_putnbr(nb / 10);
+		if (temp == -1)
+			return (-1);
+		count += temp;
+	}
+    temp = ft_putchar((nb % 10) + '0');
+		if (temp == -1)
+			return (-1);
+	count += temp;
     return count;
 }

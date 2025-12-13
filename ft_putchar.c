@@ -6,13 +6,19 @@
 /*   By: mel-bakh <mel-bakh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:14:26 by mel-bakh          #+#    #+#             */
-/*   Updated: 2025/12/06 00:14:26 by mel-bakh         ###   ########.fr       */
+/*   Updated: 2025/12/13 16:01:42 by mel-bakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar(char c)
+int	ft_putchar(char c)
 {
-    return write(1, &c, 1);
+	int	tmp;
+
+	tmp = 0;
+	tmp = write(1, &c, 1);
+	if (tmp == -1)
+		return (-1);
+	return (tmp);
 }
