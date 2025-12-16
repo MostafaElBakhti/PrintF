@@ -16,28 +16,19 @@ int	ft_putnbr(int n)
 {
 	long long	nb;
 	int			count;
-	int 		temp;
 
 	nb = n;
 	count = 0;
-    if (nb < 0)
-    {
-        temp = ft_putchar('-');
-		if (temp == -1)
-			return (-1);
-		count += temp;
-        nb = -nb;
-    }
-    if (nb >= 10)
+	if (nb < 0)
 	{
-        temp = ft_putnbr(nb / 10);
-		if (temp == -1)
+		if (ft_putchar('-') == -1)
 			return (-1);
-		count += temp;
+		count++;
+		nb = -nb;
 	}
-    temp = ft_putchar((nb % 10) + '0');
-		if (temp == -1)
-			return (-1);
-	count += temp;
-    return count;
+	if (nb >= 10)
+		count += ft_putnbr(nb / 10);
+	if (count == -1 || ft_putchar((nb % 10) + '0') == -1)
+		return (-1);
+	return (count + 1);
 }

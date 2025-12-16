@@ -12,7 +12,6 @@ SRCS = ft_printf.c \
 
 OBJS = $(SRCS:.c=.o)
 
-.PHONY: all clean fclean re
 
 all: $(NAME)
 
@@ -22,6 +21,9 @@ $(NAME): $(OBJS)
 %.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
+test: all
+	$(CC) main.c $(NAME)
+
 clean: 
 	rm -f $(OBJS)
 
@@ -29,3 +31,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

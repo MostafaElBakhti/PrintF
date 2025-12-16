@@ -15,6 +15,7 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdio.h>
 
 int		ft_printf(const char *format, ...);
 int		ft_putchar(char c);
@@ -23,5 +24,6 @@ int		ft_putnbr(int n);
 int		ft_putunsigned(unsigned int n);
 int		ft_puthex(unsigned long long n, char format);
 int		ft_putptr(unsigned long long ptr);
+int     check_valid_fomat(const char *format , int i);
 
 #endif
