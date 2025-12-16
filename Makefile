@@ -21,9 +21,6 @@ $(NAME): $(OBJS)
 %.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-test: all
-	$(CC) main.c $(NAME)
-
 clean: 
 	rm -f $(OBJS)
 
