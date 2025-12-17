@@ -12,7 +12,6 @@ SRCS = ft_printf.c \
 
 OBJS = $(SRCS:.c=.o)
 
-.PHONY: all clean fclean re
 
 all: $(NAME)
 
@@ -29,3 +28,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

@@ -4,11 +4,10 @@
 
 int main(void)
 {
-	printf("original \n : %v" , 
-	42);
+	printf("original : \nhello %a World");
 	printf("\n---------------------------------------\n");
-	ft_printf("my function \n :%v" , 
-	42);
+	ft_printf("myFunction : \nhello %a World");
 	printf("\n---------------------------------------\n");
 	return (0);
 }
+
