@@ -1,16 +1,14 @@
-#include "ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
-#include <string.h>
-
-
-#include <stdio.h>
 #include "ft_printf.h"
 
-int main(){
-
-	printf("origin : %s" , NULL);
-	printf("\n----------\n");
-	ft_printf("test : %s" , NULL);
-
+int main(void)
+{
+	printf("original \n : %v" , 
+	42);
+	printf("\n---------------------------------------\n");
+	ft_printf("my function \n :%v" , 
+	42);
+	printf("\n---------------------------------------\n");
+	return (0);
 }

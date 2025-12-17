@@ -6,7 +6,7 @@
 /*   By: mel-bakh <mel-bakh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:14:26 by mel-bakh          #+#    #+#             */
-/*   Updated: 2025/12/13 16:01:42 by mel-bakh         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:43:42 by mel-bakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 int	ft_putchar(char c)
 {
-	int	tmp;
-
-	tmp = 0;
-	tmp = write(1, &c, 1);
-	if (tmp == -1)
+	if (write(1, &c, 1) == -1)
 		return (-1);
-	return (tmp);
+	return (1);
 }
