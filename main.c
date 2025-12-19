@@ -1,4 +1,3 @@
-#include "ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
 #include <string.h>
@@ -11,3 +10,4 @@ int main(){
 	printf("\n------------------------------\n");
 	return (0);
 }
+

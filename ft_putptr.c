@@ -35,4 +35,3 @@ int	ft_putptr(unsigned long long ptr)
 	count += temp;
 	return (count);
 }
-	
