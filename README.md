@@ -31,7 +31,7 @@ int main() {
 Compile and link with:
 
 ```bash
-gcc -o example main.c libftprintf.a
+cc -o example main.c libftprintf.a
 ```
 
 ### Cleaning
@@ -45,7 +45,6 @@ make fclean
 ## Resources
 - [C Variadic Functions](https://en.cppreference.com/w/c/variadic)
 - [Printf Specification](https://man7.org/linux/man-pages/man3/printf.3.html)
-- [42 Norm](https://github.com/42School/norminette)
 
 ### AI Usage
 AI was used to assist in generating the README structure, ensuring clarity and completeness, and providing examples for usage and compilation.
@@ -54,6 +53,5 @@ AI was used to assist in generating the README structure, ensuring clarity and c
 The `ft_printf` function uses a combination of:
 - **Variadic arguments**: To handle a variable number of arguments passed to the function.
 - **State machine parsing**: To process format specifiers and modifiers efficiently.
-- **Buffering**: To optimize output by minimizing the number of write system calls.
 
 These choices ensure that the implementation is both efficient and adheres to the expected behavior of the standard `printf` function.
