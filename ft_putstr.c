@@ -25,8 +25,6 @@ int	ft_putstr(char *s1)
 	while (s1[i])
 	{
 		temp = ft_putchar(s1[i]);
-		if (temp == -1)
-			return (-1);
 		count += temp;
 		i++;
 	}

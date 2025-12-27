@@ -6,7 +6,7 @@
 /*   By: mel-bakh <mel-bakh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 15:51:07 by mel-bakh          #+#    #+#             */
-/*   Updated: 2025/12/27 10:27:51 by mel-bakh         ###   ########.fr       */
+/*   Updated: 2025/12/27 18:30:28 by mel-bakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ int	ft_putnbr(int n)
 	count = 0;
 	if (nb < 0)
 	{
-		if (ft_putchar('-') == -1)
-			return (-1);
+		ft_putchar('-');
 		count++;
 		nb = -nb;
 	}
 	if (nb >= 10)
 		count += ft_putnbr(nb / 10);
-	if (count == -1 || ft_putchar((nb % 10) + '0') == -1)
-		return (-1);
-	return (count + 1);
+	count += ft_putchar((nb % 10) + '0');
+	return (count);
 }

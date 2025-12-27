@@ -6,7 +6,7 @@
 /*   By: mel-bakh <mel-bakh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 15:50:34 by mel-bakh          #+#    #+#             */
-/*   Updated: 2025/12/22 19:25:54 by mel-bakh         ###   ########.fr       */
+/*   Updated: 2025/12/27 18:30:37 by mel-bakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int	ft_putptr(unsigned long long ptr)
 	if (! ptr)
 	{
 		temp = ft_putstr("0x0");
-		if (temp == -1)
-			return (-1);
 		return (temp);
 	}
 	temp = ft_putstr("0x");
@@ -30,8 +28,6 @@ int	ft_putptr(unsigned long long ptr)
 		return (-1);
 	count += temp;
 	temp = ft_puthex(ptr, 'x');
-	if (temp == -1)
-		return (-1);
 	count += temp;
 	return (count);
 }

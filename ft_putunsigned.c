@@ -6,7 +6,7 @@
 /*   By: mel-bakh <mel-bakh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:16:02 by mel-bakh          #+#    #+#             */
-/*   Updated: 2025/12/14 19:05:25 by mel-bakh         ###   ########.fr       */
+/*   Updated: 2025/12/27 18:31:18 by mel-bakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,9 @@ int	ft_putunsigned(unsigned int n)
 	if (n > 9)
 	{
 		temp = ft_putunsigned(n / 10);
-		if (temp == -1)
-			return (-1);
 		count += temp;
 	}
 	temp = ft_putchar((n % 10) + '0');
-	if (temp == -1)
-		return (-1);
 	count += temp;
 	return (count);
 }
