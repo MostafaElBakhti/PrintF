@@ -6,7 +6,7 @@
 /*   By: mel-bakh <mel-bakh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:02:47 by mel-bakh          #+#    #+#             */
-/*   Updated: 2025/12/27 18:41:48 by mel-bakh         ###   ########.fr       */
+/*   Updated: 2025/12/27 18:48:40 by mel-bakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		tmp = 0;
+		if (format[i] == '%' && !format[i + 1])
+			break ;
 		if (format[i] == '%' && format[i + 1])
 			tmp = ft_format(&args, format[++i]);
 		else
