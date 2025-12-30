@@ -6,12 +6,11 @@
 /*   By: mel-bakh <mel-bakh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:02:47 by mel-bakh          #+#    #+#             */
-/*   Updated: 2025/12/27 18:48:40 by mel-bakh         ###   ########.fr       */
+/*   Updated: 2025/12/30 20:44:43 by mel-bakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-// i should remove all the checks for write errors in the helper functions
 
 int	ft_format(va_list *args, char c)
 {
