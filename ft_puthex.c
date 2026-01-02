@@ -20,9 +20,9 @@ int	ft_puthex(unsigned long long n, char format)
 
 	count = 0;
 	if (format == 'x')
-		hex = "0123456789abcdef";
+		hex = LOWER_BASE;
 	else
-		hex = "0123456789ABCDEF";
+		hex = UPPER_BASE;
 	if (n >= 16)
 	{
 		temp = ft_puthex(n / 16, format);

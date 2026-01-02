@@ -3,63 +3,80 @@
 # ft_printf
 
 ## Description
-`ft_printf` is a custom implementation of the standard `printf` function in C. The goal of this project is to recreate the functionality of `printf`, handling various format specifiers and ensuring compatibility with the C standard library. This project is part of the 42 curriculum, designed to enhance understanding of variadic functions, string manipulation, and low-level programming concepts.
+
+`ft_printf` is a custom implementation of the C standard `printf` function. The goal of this project is to recreate the core functionality of `printf`, handling various format specifiers while maintaining compatibility with standard behavior. This project deepens understanding of variadic functions, string manipulation, and low-level C programming.
 
 ## Instructions
 
 ### Compilation
-To compile the project, use the provided `Makefile`. Run the following command in the root directory:
 
 ```bash
 make
 ```
 
-This will generate the `libftprintf.a` library, which can be linked to your project.
-
-### Usage
-To use the `ft_printf` function in your project, include the `ft_printf.h` header file and link the compiled library. Example:
-
-```c
-#include "ft_printf.h"
-#include <stdio.h>
-
-int main(void) {
-    char c = 'A', *s = "Test";
-    void *p = (void*)0x1234abcd;
-    int d = -42, i = 42, x = 0x2a, X = 0x2A;
-    unsigned int u = 42;
-
-    ft_printf("c:[%c] s:[%s] p:[%p] d:[%d] i:[%i] u:[%u] x:[%x] X:[%X] %%:[%%]\n", c, s, p, d, i, u, x, X);
-    printf   ("c:[%c] s:[%s] p:[%p] d:[%d] i:[%i] u:[%u] x:[%x] X:[%X] %%:[%%]\n", c, s, p, d, i, u, x, X);
-
-    return 0;
-}
-```
-
-Compile and link with:
-
-```bash
-cc -o example main.c libftprintf.a
-```
-
 ### Cleaning
-To remove object files and the compiled library, use:
+
+To remove object files:
 
 ```bash
 make clean
+```
+
+To remove object files and the library:
+
+```bash
 make fclean
 ```
 
+## Supported Format Specifiers
+
+- `%c` - Character
+- `%s` - String
+- `%d` / `%i` - Signed integer
+- `%u` - Unsigned integer
+- `%x` - Hexadecimal (lowercase)
+- `%X` - Hexadecimal (uppercase)
+- `%p` - Pointer address
+- `%%` - Percent sign
+
+## Test Example
+
+```c
+#include "ft_printf.h"
+
+int main(void)
+{
+    ft_printf("Character: %c\n", 'A');
+    ft_printf("String: %s\n", "Hello");
+    ft_printf("Integer: %d\n", -42);
+    ft_printf("Unsigned: %u\n", 42);
+    ft_printf("Hex (lower): %x\n", 255);
+    ft_printf("Hex (upper): %X\n", 255);
+    ft_printf("Pointer: %p\n", (void *)&main);
+    ft_printf("Percent: %%\n");
+    return (0);
+}
+```
+
+Compile and run:
+
+```bash
+cc -o test test.c libftprintf.a && ./test
+```
+
+## Algorithm and Data Structure
+
+- **Variadic Arguments**: Handles variable number of arguments using `va_list`.
+- **Format String Parsing**: Routes format specifiers to handlers.
+- **Modular Design**: Each format specifier has a dedicated function.
+
 ## Resources
+
 - [C Variadic Functions](https://en.cppreference.com/w/c/variadic)
 - [Printf Specification](https://man7.org/linux/man-pages/man3/printf.3.html)
 
-### AI Usage
-AI was used to assist in generating the README structure, ensuring clarity and completeness, and providing examples for usage and compilation.
+## AI Usage
 
-## Algorithm and Data Structure
-The `ft_printf` function uses a combination of:
-- **Variadic arguments**: To handle a variable number of arguments passed to the function.
-- **State machine parsing**: To process format specifiers and modifiers efficiently.
-
-These choices ensure that the implementation is both efficient and adheres to the expected behavior of the standard `printf` function.
+AI was used to:
+- Structure and format the README for clarity and compliance with 42 standards
+- Review code for best practices and 42-compliant formatting

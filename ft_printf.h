@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+# define UPPER_BASE "0123456789ABCDEF" 
 # define LOWER_BASE "0123456789abcdef"
 
 int		ft_printf(const char *format, ...);
